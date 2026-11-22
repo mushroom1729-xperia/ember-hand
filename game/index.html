@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMBER HAND</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game" aria-label="EMBER HAND: turn-based card duel"></canvas>
+  <p id="status" role="status" aria-live="polite" class="ui"></p>
+
+  <div class="ui title">EMBER HAND</div>
+  <div class="ui subtitle">Click or press Enter to start</div>
+  <div class="ui howto">
+    <div class="line">Drag cards from hand to play, or click creature then target</div>
+    <div class="line">End turn to pass to AI, reduce enemy life to 0 to win</div>
+    <div class="line">Your creatures attack; enemy creatures defend</div>
+  </div>
+
+  <div class="screen title" id="screenTitle">
+    <div class="overlay">
+      <h2>EMBER HAND</h2>
+      <p>Click or press <kbd>Enter</kbd> to start</p>
+      <p>How to play in 2-3 lines:</p>
+      <div class="howto" style="font-size:12px;max-width:280px;line-height:1.4;">
+        <div class="line">Move creatures then end turn</div>
+        <div class="line">Reduce opponent life to 0</div>
+        <div class="line">Deck out = lose 1 life</div>
+      </div>
+      <button class="btn" id="startBtn">Start Game</button>
+    </div>
+  </div>
+
+  <div class="screen game" id="screenGame" style="display:none;">
+    <div class="turn-indicator" id="turnInd">Your turn</div>
+    <div class="mana" id="mana">&#9679;&#9679;&#9679;</div>
+    <div class="life" id="playerLife">&#128152;&#128152;&#128152;&#128152;&#128152;</div>
+    <div class="life opponent" id="opponentLife">&#128152;&#128152;&#128152;&#128152;&#128152;</div>
+    <div class="end-turn" id="endTurnBtn">End Turn</div>
+    <div class="ui" id="battleLog"></div>
+    <div style="position:absolute; inset:0; display:flex; gap:20px; justify-content:center; align-items:center;">
+      <div style="background:rgba(10,10,15,0.8);border:2px solid #3a3a52;border-radius:8px;padding:12px;">
+        <div style="margin:8px 0;color:#e8e8f0;font-size:12px;">Controls:</div>
+        <div class="line">Click cards/creatures to play/attack</div>
+        <div class="line">Use 1-9 number keys to select creature quickly</div>
+        <div class="line">Press E to end turn</div>
+        <div class="line">Press T for title, G for game, W for win, L for lose</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen overlays" id="screenOverlays" style="display:none;">
+    <div class="overlay" id="overlayWin">
+      <h2>YOU WIN!</h2>
+      <p>Defeat the opponent</p>
+      <button class="btn" id="playAgainBtn">Play Again</button>
+    </div>
+    <div class="overlay" id="overlayLoss">
+      <h2>YOU LOSE</h2>
+      <p>The opponent defeated you</p>
+      <button class="btn" id="playAgainBtn2">Play Again</button>
+    </div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
